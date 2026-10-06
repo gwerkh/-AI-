@@ -1,0 +1,282 @@
+```html
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#17643a">
+
+    <title>분리배출 AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="app">
+
+        <header>
+
+            <div class="logo">
+                ♻️
+            </div>
+
+            <h1>분리배출 AI</h1>
+
+            <p>
+                쓰레기를 촬영하면<br>
+                AI가 분리배출 방법을 알려드립니다.
+            </p>
+
+        </header>
+
+
+        <!-- =====================
+             카메라
+        ====================== -->
+
+        <section class="location-area" aria-labelledby="location-heading">
+    <div class="location-copy">
+        <h2 id="location-heading">📍 현재 지역</h2>
+        <p id="location-status" role="status" aria-live="polite">위치 권한을 허용하면 현재 시·군·구를 자동으로 확인합니다.</p>
+    </div>
+    <strong id="current-region">지역 확인 전</strong>
+    <button id="start-location" class="location-button" type="button">현재 위치 사용</button>
+</section>
+<section class="camera-area">
+
+            <h2>📷 쓰레기 촬영</h2>
+
+            <p>
+                쓰레기를 화면 안에 맞춰주세요.
+            </p>
+
+
+            <video
+                id="camera"
+                autoplay
+                playsinline>
+            </video>
+
+
+            <canvas
+                id="photo"
+                class="hidden">
+            </canvas>
+
+
+            <div class="camera-buttons">
+
+                <button
+                    id="start-camera"
+                    class="main-button">
+
+                    📷 카메라 시작
+
+                </button>
+
+
+                <button
+                    id="take-photo"
+                    class="main-button hidden">
+
+                    📸 촬영하기
+
+                </button>
+
+            </div>
+
+
+            <img
+                id="captured-image"
+                class="captured-image hidden"
+                alt="촬영한 쓰레기 사진">
+
+        </section>
+
+
+        <!-- =====================
+             테스트
+        ====================== -->
+
+        <section class="test-area">
+
+            <h2>🧪 테스트 모드</h2>
+
+            <p>
+                카메라 기능을 테스트하기 어렵다면
+                아래에서 직접 선택할 수 있습니다.
+            </p>
+
+
+            <div class="waste-buttons">
+
+                <button
+                    class="waste-button"
+                    data-waste="plastic_bottle">
+
+                    🧴
+                    <span>페트병</span>
+
+                </button>
+
+
+                <button
+                    class="waste-button"
+                    data-waste="can">
+
+                    🥫
+                    <span>캔</span>
+
+                </button>
+
+
+                <button
+                    class="waste-button"
+                    data-waste="paper">
+
+                    📄
+                    <span>종이</span>
+
+                </button>
+
+
+                <button
+                    class="waste-button"
+                    data-waste="cardboard">
+
+                    📦
+                    <span>박스</span>
+
+                </button>
+
+
+                <button
+                    class="waste-button"
+                    data-waste="plastic_bag">
+
+                    🛍️
+                    <span>비닐</span>
+
+                </button>
+
+
+                <button
+                    class="waste-button"
+                    data-waste="glass_bottle">
+
+                    🍾
+                    <span>유리병</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================
+             결과
+        ====================== -->
+
+        <section
+            id="result-card"
+            class="result-card hidden">
+
+            <span
+                id="category"
+                class="category">
+            </span>
+
+
+            <h2 id="waste-name">
+                쓰레기 이름
+            </h2>
+
+
+            <p id="description">
+                쓰레기 설명
+            </p>
+
+
+            <div class="info">
+
+                <div class="info-item">
+
+                    <span>
+                        재질
+                    </span>
+
+                    <strong id="material">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        AI 확신도
+                    </span>
+
+                    <strong id="confidence">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="more-button"
+                class="more-button">
+
+                더보기
+
+            </button>
+
+
+            <div
+                id="details"
+                class="details">
+
+                <strong>
+                    ♻ 분리배출 방법
+                </strong>
+
+                <p id="disposal">
+                    -
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            분리배출 방법은 지역별 기준에 따라
+            다를 수 있습니다.
+
+        </footer>
+
+    </div>
+
+
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b18acee9d847756c1eef900f6ac5a6fe&libraries=services"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
